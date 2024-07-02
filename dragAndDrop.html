@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" manifest="offline.appcache">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rohan Kumar</title>
+  </head>
+  <style>
+    .header {
+      background-color: bisque;
+    }
+    .video {
+      height: 200px;
+      width: 300px;
+    }
+    .dropzone {
+      width: 200px;
+      height: 200px;
+      border: 2px dashed #ccc;
+      padding:  10px;
+    }
+
+    .dragitem {
+      width: 100px;
+      height: 100px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      cursor: move;
+    }
+  </style>
+  <body>
+    <main>
+      <div
+        id="dragitem1"
+        class="dragitem"
+        draggable="true"
+        ondragstart="drag(event)"
+      >
+        Draggable Item 1
+      </div>
+      <div
+        id="dragitem2"
+        class="dragitem"
+        draggable="true"
+        ondragstart="drag(event)"
+      >
+        Draggable Item 2
+      </div>
+      <div
+        id="dropzone"
+        class="dropzone"
+        ondragover="allowDrop(event)"
+        ondrop="drop(event)"
+      >
+        Drop Zone
+      </div>
+    </main>
+  </body>
+  <script>
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function drag(event) {
+      event.dataTransfer.setData("text", event.target.id);
+    }
+
+    function drop(event) {
+      event.preventDefault();
+      var data = event.dataTransfer.getData("text");
+      event.target.appendChild(document.getElementById(data));
+    }
+  </script>
+</html>
