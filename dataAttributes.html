@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" manifest="offline.appcache">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Improved Accessible Webpage</title>
+  </head>
+  <style>
+    .button[data-action="delete"] {
+      color: red;
+    }
+  </style>
+  <body>
+    <header>
+      <h1>Welcome to my improved accessible web page</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#section1">Section 1</a></li><br>
+        <li><a href="#section2">Section 2</a></li><br>
+        <li><a href="#section3">Section 3</a></li><br>
+      </ul>
+    </nav>
+    <main>
+      <section id="section1"><br>
+        <h2>
+          Section 1
+        </h2>
+        <article>
+          <h3>SubSection 1.1</h3>
+          <p>
+            This is the content of subsection 1.1
+          </p>
+          <button class="button" id="myButton" data-action="delete" data-item-id="123">
+            Delete
+          </button>
+        </article>
+        <br>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 My Improved Accessible Webpage</p>
+    </footer>
+  </body>
+  <script>
+    var button = document.getElementById("myButton");
+    var action = button.dataset.action;
+    var itemId = button.dataset.itemId;
+    // button.dataset.action = "update"
+    console.log(action);
+    console.log(itemId);
+    // action = button.dataset.action;
+    console.log(action);
+  </script>
+</html>
